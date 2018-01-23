@@ -14,7 +14,7 @@ def index(request):
 		if form.is_valid():
 			User.name = form.cleaned_data['username']
 			User.save()
-			return redirect('meandhim:quiz',  name=User.name, val=val, id= 0)
+			return redirect('meandhim:quiz',  name=User.name, val=val, id= 1)
 	else:
 		form = userForm()
 	return render(request,'meandhim/index.html',
