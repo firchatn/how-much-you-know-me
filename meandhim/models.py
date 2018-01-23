@@ -9,16 +9,16 @@ class user(models.Model):
 		return self.name
 """
 
-class choice(models.Model):
-	name = models.CharField(max_length=20)
-	def __str__(self):
-		return self.name
 
 class question(models.Model):
 	id = models.IntegerField()
-    choice = models.ForeignKey(choice, on_delete=models.CASCADE)
+    choice1 = models.CharField(max_length=200)
+    choice2 = models.CharField(max_length=200)
+    choice3 = models.CharField(max_length=200)
+    choice4 = models.CharField(max_length=200, blank=True)
+    choice5 = models.CharField(max_length=200, blank=True)
 	def __str__(self):
-		return self.name
+		return self.id
 
 class response(models.Model):
 	user = models.ForeignKey(user, on_delete=models.CASCADE)
