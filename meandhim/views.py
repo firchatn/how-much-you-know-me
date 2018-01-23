@@ -6,8 +6,8 @@ from .models import user
 
 
 def index(request):
+	val = request.POST.get('v')
 	if request.method == "POST":
-		print('ok1')
 		form = userForm(request.POST)
 		User = user()
 		if form.is_valid():
@@ -21,7 +21,5 @@ def index(request):
 
 
 def quiz(request, id):
-	print(id)
-
 	return render(request, 'meandhim/quiz.html')
 
