@@ -9,13 +9,14 @@ class user(models.Model):
 		return self.name
 
 class question(models.Model):
+	quest = models.CharField(max_length=200)
 	choice1 = models.CharField(max_length=200)
 	choice2 = models.CharField(max_length=200)
 	choice3 = models.CharField(max_length=200)
 	choice4 = models.CharField(max_length=200, blank=True)
 	choice5 = models.CharField(max_length=200, blank=True)
 	def __str__(self):
-		return self.id
+		return self.quest
 
 class response(models.Model):
 	user = models.ForeignKey(user, on_delete=models.CASCADE)

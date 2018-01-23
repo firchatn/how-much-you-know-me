@@ -22,11 +22,13 @@ def index(request):
 
 
 def quiz(request, name, val, id=None):
+	quests = question.objects.filter(id=id)[:1].get()
+	print(quests)
 	"""
 	if val == 'q':
 		Response = response()
 	else:
 		Anwser = anwser()
 	"""
-	return render(request, 'meandhim/quiz.html')
+	return render(request, 'meandhim/quiz.html', {'quests' : quests})
 
