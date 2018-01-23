@@ -12,7 +12,6 @@ def index(request):
 		User = user()
 		v = request.GET.get('v')
 		if form.is_valid():
-			print('ok2')
 			User.name = form.cleaned_data['username']
 			User.save()
 			return redirect('meandhim:quiz')
