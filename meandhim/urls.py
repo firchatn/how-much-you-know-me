@@ -3,6 +3,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^name/$', views.quiz, name='quiz'),
+    url(r'^user/$', views.quiz, name='quiz'),
     
 ]
