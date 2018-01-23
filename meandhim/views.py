@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import userForm
 from .models import user
-# Create your views here.
+#from .models import question, response
+
 
 
 

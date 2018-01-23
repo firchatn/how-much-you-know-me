@@ -8,26 +8,29 @@ class user(models.Model):
 	def __str__(self):
 		return self.name
 """
-class response(models.Model):
-	name = models.CharField(max_length=20)
-	def __str__(self):
-		return self.name
 
-
-class answer(models.Model):
+class choice(models.Model):
 	name = models.CharField(max_length=20)
 	def __str__(self):
 		return self.name
 
 class question(models.Model):
 	id = models.IntegerField()
-	name = models.CharField(max_length=20)
+    choice = models.ForeignKey(choice, on_delete=models.CASCADE)
 	def __str__(self):
 		return self.name
 
-class choice(models.Model):
-	id = models.IntegerField()
-	name = models.CharField(max_length=20)
+class response(models.Model):
+	user = models.ForeignKey(user, on_delete=models.CASCADE)
+	question = models.ForeignKey(question, on_delete=models.CASCADE)
 	def __str__(self):
-		return self.name
+		return self.user
+
+class anwser(models.Model):
+	user = models.ForeignKey(user, on_delete=models.CASCADE)
+	response = models.ForeignKey(response, on_delete=models.CASCADE)
+	score = models.IntegerField()
+	def __str__(self):
+		return self.user
+
 """
