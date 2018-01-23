@@ -1,1 +1,34 @@
-hello did you know me
+<!DOCTYPE>
+<html>
+<head>
+<title> f </title>
+	{% load staticfiles %}
+		
+		
+		<link rel="stylesheet" href="{% static 'meandhim/css/style.css' %}" />
+		<script src="{% static 'meandhim/js/scripts.js' %}"></script>		
+</head>
+<body class="bg-for-submit-name">
+
+    <div class="container">
+        <div class="row">
+            <span class="image-position"><a href="https://www.facebook.com/meuix/?ref=settings" target="_blank">
+	           <img src="https://lh4.googleusercontent.com/fLEIj3iQb7O1FhjOpLFbJtHmsMlLGmLynSWUvAP70qF0HLEBty-FANvwweg7Sv2XqSpzOKNI=w1366-h638"></a>
+	        </span>
+        </div>
+        <div class="row margin-top">
+            <div class="col-md-12">
+                <div class="wrap">
+                    <p class="form-title Arabella">
+                        Before start with quiz please submit your name
+                    </p>
+                    <form  class="login" id="theFormID" action="quiz.html">
+                        <input type="text" id="theFieldID" placeholder="Type your name..."/><br>
+                        <button type="submit" class="btn btn-success" id="submit_on">SUBMIT YOUR NAME</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>    
+</html>
