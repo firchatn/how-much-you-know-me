@@ -25,7 +25,9 @@
                     <form  class="login" id="theFormID" action="{% url 'quiz' %}" method="get">
 			             <spam ><input type="radio"  name="v" value="q" >Question</spam>
 			             <spam ><input type="radio" name="v"  value="r" >Response </spam>
-                         <input type="text" id="theFieldID" placeholder="Type your name..."/><br>
+                         <!-- <input type="text" id="theFieldID" placeholder="Type your name..."/><br> -->
+                             {% csrf_token %}
+                             {{ form.as_p }}
                          <button type="submit" class="btn btn-success" id="submit_on">SUBMIT NAME</button>
 			
                     </form>
