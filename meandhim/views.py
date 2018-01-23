@@ -13,14 +13,15 @@ def index(request):
 		if form.is_valid():
 			User.name = form.cleaned_data['username']
 			User.save()
-			return redirect('meandhim:quiz')
+			return redirect('meandhim:quiz',  id=User.name)
 	else:
 		form = userForm()
 	return render(request,'meandhim/index.html',
                       {'form' : form})
 
 
-def quiz(request):
-	
+def quiz(request, id):
+	print(id)
+
 	return render(request, 'meandhim/quiz.html')
 
