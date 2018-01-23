@@ -10,7 +10,6 @@ def index(request):
 		print('ok1')
 		form = userForm(request.POST)
 		User = user()
-		v = request.GET.get('v')
 		if form.is_valid():
 			User.name = form.cleaned_data['username']
 			User.save()
@@ -22,9 +21,6 @@ def index(request):
 
 
 def quiz(request):
-	username = request.GET.get('username')
-	v = request.GET.get('v')
-	print(v)
-	print(username)
+	
 	return render(request, 'meandhim/quiz.html')
 
