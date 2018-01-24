@@ -32,8 +32,21 @@ def quiz(request, name, val, id):
 	x = int(id)
 	x = x + 1 
 	id = str(x)
-	if x<=2:
+	try:
 		quests = question.objects.filter(id=id)[:1].get()
+	except Exception:
+		pass
+
+	if x<=2:
+		if val == 'r':
+			Response = response()
+			userval = user.objects.filter(name=name)[:1].get()
+			quesval = quests
+			choiceval = request.GET.get('answer','')
+			Response.user = userval
+			Response.question = quesval
+			Response.choice = choiceval
+			Response.save()
 	elif val == 'r':
 		return redirect('meandhim:result' , name=name)
 	else:

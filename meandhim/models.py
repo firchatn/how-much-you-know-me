@@ -23,7 +23,7 @@ class response(models.Model):
 	question = models.ForeignKey(question, on_delete=models.CASCADE)
 	choice = models.CharField(max_length=10)
 	def __str__(self):
-		return self.user
+		return self.choice
 
 class anwser(models.Model):
 	user = models.ForeignKey(user, on_delete=models.CASCADE)
