@@ -23,8 +23,8 @@
                         Before start with quiz please submit your name 
                     </p>
                     <form  class="login" id="theFormID" action="{% url 'meandhim:index' %}" method="post">
-			             <spam ><input type="radio"  name="v" value="q" >Question</spam>
-			             <spam ><input type="radio" name="v"  value="r" >Response </spam>
+			             <spam ><input type="radio"  name="v" value="r" >Upload </spam>
+			             <spam ><input type="radio" name="v"  value="q" >Check Anwser </spam>
                          <!-- <input type="text" id="theFieldID" placeholder="Type your name..."/><br> -->
                              {% csrf_token %}
                              {{ form.as_p }}

@@ -12,7 +12,8 @@ def index(request):
 		form = userForm(request.POST)
 		User = user()
 		if form.is_valid():
-			User.name = form.cleaned_data['username']
+			currentname = form.cleaned_data['username']
+			User.name = currentname
 			User.save()
 			return redirect('meandhim:quiz',  name=User.name, val=val, id = 0)
 	else:
@@ -22,7 +23,9 @@ def index(request):
 
 
 def result(request, name):
-	return render(request, 'meandhim/result.html')
+	userval = user.objects.filter(name=name)[:1].get()
+	rep = response.objects.filter(user=userval).all()
+	return render(request, 'meandhim/result.html', {'rep' : rep})
 
 def share(request, name):
 	return render(request, 'meandhim/share.html')

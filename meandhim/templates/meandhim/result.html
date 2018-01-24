@@ -24,6 +24,14 @@
                                 <th>Your answer</th>
                                 <th>Result</th>
                             </tr>
+                            {% for i in rep %}
+                            <tr>
+                                <th> {{i.question.id}}</th>
+                                <th>{{ i.choice }}</th>
+                                <th>Your answer</th>
+                                <th>Result</th>
+                            </tr>
+                            {% endfor %}
                         </thead>
                         <tbody id="quizResult"></tbody>
                     </table>
