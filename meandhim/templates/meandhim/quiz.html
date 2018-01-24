@@ -26,27 +26,33 @@
                             <h3><span class="label label-warning" id="qid">{{quests.id}}</span>
                             <span id="question"> {{quests.quest}}</span>
                             </h3>
+                            <form action="">
                         </div>
+                        
                         <ul>
                           <li>
-                            <input type="radio" id="f-option" name="selector" value="{{quests.choice1}}">
+                            <input type="radio" id="f-option" name="answer" value="{{quests.choice1}}">
                             <label for="f-option" class="element-animation">{{quests.choice1}}</label>
                             <div class="check"></div>
                           </li>
                           
                           <li>
-                            <input type="radio" id="s-option" name="selector" value="{{quests.choice2}}">
+                            <input type="radio" id="s-option" name="answer" value="{{quests.choice2}}">
                             <label for="s-option" class="element-animation">{{quests.choice2}}</label>
                             <div class="check"><div class="inside"></div></div>
                           </li>
                           
                           <li>
-                            <input type="radio" id="t-option" name="selector" value="{{quests.choice3}}">
+                            <input type="radio" id="t-option" name="answer" value="{{quests.choice3}}">
                             <label for="t-option" class="element-animation">{{quests.choice3}}</label>
                             <div class="check"><div class="inside"></div></div>
                           </li>
                         </ul>
+                      
                     </div>
+                    <button type="submit" class="btn btn-success" id="submit_on">SUBMIT ANSWER</button>
+                      </form>
+                    
                 </div>
                 <div class="text-muted">
                     <span id="answer"></span>

@@ -21,9 +21,8 @@ def index(request):
                       {'form' : form})
 
 
-def quiz(request, name, val, id=None):
+def quiz(request, name, val, id):
 	quests = question.objects.filter(id=id)[:1].get()
-	print(quests)
 	"""
 	if val == 'q':
 		Response = response()
