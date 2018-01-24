@@ -4,7 +4,7 @@ from .models import user
 from .models import question, response, anwser
 
 
-
+s = 0 
 
 def index(request):
 	val = request.POST.get('v')
@@ -36,7 +36,6 @@ def quiz(request, name, val, id):
 		quests = question.objects.filter(id=id)[:1].get()
 	except Exception:
 		pass
-
 	if x<=2:
 		if val == 'r':
 			Response = response()
@@ -47,6 +46,21 @@ def quiz(request, name, val, id):
 			Response.question = quesval
 			Response.choice = choiceval
 			Response.save()
+		else:
+			Answer = anwser()
+			rep = response.objects.filter(user=name)[:1].get()
+
+			userval = user.objects.filter(name=name)[:1].get()
+			questval = quests
+			choiceval = request.GET.get('answer','')
+			Answer.user = userval
+			Answer.question = questval
+			Answer.choice = choiceval
+			if rep.choice == choiceval:
+				s = s + 1
+			Answer.score = s 
+			Answer.save()
+
 	elif val == 'r':
 		return redirect('meandhim:result' , name=name)
 	else:

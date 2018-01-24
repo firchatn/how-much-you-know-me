@@ -27,7 +27,8 @@ class response(models.Model):
 
 class anwser(models.Model):
 	user = models.ForeignKey(user, on_delete=models.CASCADE)
-	response = models.ForeignKey(response, on_delete=models.CASCADE)
+	question = models.ForeignKey(question, on_delete=models.CASCADE)
+	choice = models.CharField(max_length=10)
 	score = models.IntegerField()
 	def __str__(self):
 		return self.user
