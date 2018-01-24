@@ -21,20 +21,22 @@ def index(request):
                       {'form' : form})
 
 
+def result(request, name):
+	return render(request, 'meandhim/result.html')
+
+def share(request, name):
+	return render(request, 'meandhim/share.html')
+
+
 def quiz(request, name, val, id):
 	x = int(id)
 	x = x + 1 
 	id = str(x)
-	quests = question.objects.filter(id=id)[:1].get()
-	"""
-	if val == 'q':
-		Response = response()
+	if x<=2:
+		quests = question.objects.filter(id=id)[:1].get()
+	elif val == 'r':
+		return redirect('meandhim:result' , name=name)
 	else:
-		Anwser = anwser()
-	
-	x = int(id)
-	x = x + 1 
-	id = str(x)
-	"""
+		return redirect('meandhim:share' , name=name)
 	return render(request, 'meandhim/quiz.html', {'quests' : quests, 'name' : name , 'val' : val})
 
