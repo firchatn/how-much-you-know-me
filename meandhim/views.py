@@ -25,7 +25,8 @@ def index(request):
 def result(request, name):
 	userval = user.objects.filter(name=name)[:1].get()
 	rep = response.objects.filter(user=userval).all()
-	return render(request, 'meandhim/result.html', {'rep' : rep})
+	ans = anwser.objects.filter(user=userval).all()
+	return render(request, 'meandhim/result.html', {'rep' : rep, 'ans' : ans})
 
 def share(request, name):
 	return render(request, 'meandhim/share.html')
