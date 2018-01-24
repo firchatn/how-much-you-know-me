@@ -14,7 +14,7 @@ def index(request):
 		if form.is_valid():
 			User.name = form.cleaned_data['username']
 			User.save()
-			return redirect('meandhim:quiz',  name=User.name, val=val, id= 1)
+			return redirect('meandhim:quiz',  name=User.name, val=val, id = 0)
 	else:
 		form = userForm()
 	return render(request,'meandhim/index.html',
@@ -22,12 +22,19 @@ def index(request):
 
 
 def quiz(request, name, val, id):
+	x = int(id)
+	x = x + 1 
+	id = str(x)
 	quests = question.objects.filter(id=id)[:1].get()
 	"""
 	if val == 'q':
 		Response = response()
 	else:
 		Anwser = anwser()
+	
+	x = int(id)
+	x = x + 1 
+	id = str(x)
 	"""
-	return render(request, 'meandhim/quiz.html', {'quests' : quests})
+	return render(request, 'meandhim/quiz.html', {'quests' : quests, 'name' : name , 'val' : val})
 

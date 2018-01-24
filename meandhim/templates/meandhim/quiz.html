@@ -26,7 +26,7 @@
                             <h3><span class="label label-warning" id="qid">{{quests.id}}</span>
                             <span id="question"> {{quests.quest}}</span>
                             </h3>
-                            <form action="">
+                            <form action="{% url 'meandhim:quiz' name val quests.id  %}">
                         </div>
                         
                         <ul>
