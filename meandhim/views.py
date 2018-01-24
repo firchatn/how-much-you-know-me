@@ -4,7 +4,7 @@ from .models import user
 from .models import question, response, anwser
 
 
-s = 0 
+s = 0
 
 def index(request):
 	val = request.POST.get('v')
@@ -29,6 +29,7 @@ def share(request, name):
 
 
 def quiz(request, name, val, id):
+	global s
 	x = int(id)
 	x = x + 1 
 	id = str(x)
@@ -48,9 +49,9 @@ def quiz(request, name, val, id):
 			Response.save()
 		else:
 			Answer = anwser()
-			rep = response.objects.filter(user=name)[:1].get()
 
 			userval = user.objects.filter(name=name)[:1].get()
+			rep = response.objects.filter(user=userval)[:1].get()
 			questval = quests
 			choiceval = request.GET.get('answer','')
 			Answer.user = userval

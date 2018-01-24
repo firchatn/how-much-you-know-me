@@ -31,4 +31,4 @@ class anwser(models.Model):
 	choice = models.CharField(max_length=10)
 	score = models.IntegerField()
 	def __str__(self):
-		return self.user
+		return self.choice
