@@ -46,18 +46,17 @@ def quiz(request, name, val, id):
 			Response = response()
 			userval = user.objects.filter(name=name)[:1].get()
 			quesval = quests
-			choiceval = request.GET.get('answer','')
+			choiceval = request.POST.get('answer','')
 			Response.user = userval
 			Response.question = quesval
 			Response.choice = choiceval
 			Response.save()
 		else:
 			Answer = anwser()
-
 			userval = user.objects.filter(name=name)[:1].get()
 			rep = response.objects.filter(user=userval)[:1].get()
 			questval = quests
-			choiceval = request.GET.get('answer','')
+			choiceval = request.POST.get('answer','')
 			Answer.user = userval
 			Answer.question = questval
 			Answer.choice = choiceval
