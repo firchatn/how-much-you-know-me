@@ -29,7 +29,7 @@ def result(request, name):
 	return render(request, 'meandhim/result.html', {'rep' : rep, 'ans' : ans})
 
 def share(request, name):
-	return render(request, 'meandhim/share.html')
+	return render(request, 'meandhim/share.html', {'name' : name})
 
 
 def quiz(request, name, val, id):
