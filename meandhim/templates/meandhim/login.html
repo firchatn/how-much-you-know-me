@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+<head>
+<title>Welcome </title>
+	{% load staticfiles %}
+		<link rel="stylesheet" href="{% static 'meandhim/css/style.css' %}" />
+		<script src="{% static 'meandhim/js/scripts.js' %}"></script>		
+</head>
+<body class="bg-for-submit-name">
+    <div class="container">
+        <div class="row">
+        </div>
+        <div class="row margin-top">
+            <div class="col-md-12">
+                <div class="wrap">
+                    <p class="form-title Arabella">
+                        Before start with quiz please submit your name 
+                    </p>
+                    <form  class="login" id="theFormID" action="{% url 'meandhim:index' %}" method="post">
+			             <spam ><input type="radio"  name="v" value="r" >Check</spam>
+			             <spam ><input type="radio" name="v"  value="q" >Upload Anwser </spam>
+                             {% csrf_token %}
+                             {{ form.as_p }}
+                         <button type="submit" class="btn btn-success" id="submit_on">SUBMIT NAME</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>    
+</html>
