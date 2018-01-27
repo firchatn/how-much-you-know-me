@@ -2,16 +2,15 @@
 <html>
 <head>
 <title> Show Me </title>
-	{% load staticfiles %}
-		
-		
+		{% load staticfiles %}
 		<link rel="stylesheet" href="{% static 'meandhim/css/stylequiz.css' %}" />
 		<script src="{% static 'meandhim/js/scriptquiz.js' %}"></script>		
 </head>
 <body>
 <div class="container">
-
-<h1> share this link to your friends <a href="127.0.0.1:8000/"> 127.0.0.1:8000/{{ name }}/r/0  </a> </h1>
-    </div>
+	<h1>share this link to your friends 
+	<a href="127.0.0.1:8000/{{name}}/r/0 " target="_blank">127.0.0.1:8000/{{name}}/r/0</a>
+	</h1>
+</div>
 </body>  
 </html>
